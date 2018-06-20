@@ -1,0 +1,40 @@
+﻿@import 'Colors.css';
+@import url('https://fonts.googleapis.com/css?family=Rammetto+One');
+.errorclass {
+    text-align: center;
+    font-family: 'Rammetto One', cursive;
+    margin-right: 100px;
+    padding-top: 40px;
+    display: block;
+    position: center;
+}
+.errorclass h1 {
+    margin-bottom: 10px;
+    font-size: 30px;
+    display: block;
+    color: var(--brhardtonotice);
+}
+.errorclass h4 {
+        font-size: 15px;
+        color: var(--whitetext)
+    }
+.errorclass p {
+    font-size: 14px;
+    color: var(--brhardtonotice);
+}
+.errorclass a {
+        color: #f36;
+    }
+.errorclass a:link {
+        color: #f36;
+        text-decoration: none;
+    }
+.errorclass a:hover {
+        color: var(--brorange);
+        text-decoration: none;
+    }
+
+
+
+
+

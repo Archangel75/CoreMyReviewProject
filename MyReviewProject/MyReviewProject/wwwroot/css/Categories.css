@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Gabriela|Raleway:500,700&subset=latin-ext');
+@import "Colors.css";
+
+.menu-cat {
+    list-style: none;
+    margin: 0 5px;
+    padding: 10px 0 10px;
+    min-height:78px;
+    background: var(--darkgray);
+    border: 5px solid var(--nocolor);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.menu-cat li {display: inline-block;}
+.menu-cat li:after {
+  content: "|";
+  color: var(--hovertext);
+  display: inline-block;
+  vertical-align:top;
+}
+
+.menu-cat li:last-child:after {content: none;}
+
+.menu-cat a {
+  text-decoration: none;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 20px;
+  margin: 0 34px 0 30px;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: color .2s;
+}
+
+.menu-cat a, .menu-cat a:visited {color: var(--text)}
+.menu-cat a.current, .menu-cat a:hover{color: var(--hovertext)}
+.menu-cat a:before,
+.menu-cat a:after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  top: auto;
+  bottom: -5px;
+  background: var(--hovertext);
+  transition: .8s;
+}
+.menu-cat a:hover:before, .menu-cat .current:before {left: 0;}
+.menu-cat a:hover:after, .menu-cat .current:after {right: 0;}   
+@media (max-width: 550px) {
+.menu-cat {padding-top: 0;}
+.menu-cat li {display: block;}
+.menu-cat li:after {content: none;}
+.menu-cat a {
+  padding: 25px 0 20px; 
+  margin: 0 30px;
+}
+}
+
+.login {
+    padding: 17px 0 5px 0;
+    position: absolute;
+    right: 50px;
+    display: inline-block;   
+}
+
+.logo{    
+    height:60px;
+    width:60px;
+    float:left;
+    margin:1px 20px 1px 45px;
+    border-radius:5px;
+}
+
+    .logo a {
+        margin:0;
+        padding:0;
+        background: url('Images/logo.jpg');
+        height:inherit;
+        width:inherit;
+    }
+    
+    .search{
+        float:left;
+        display:flex;
+        margin: 15px 0 20px 60px;
+        margin-left:50px;
+    }
+        .search input {
+            font-family: 'Gabriela', serif;
+            font-size: 17px;
+            color:var(--brhardtonotice);
+            background-color: var(--lightgray);
+            margin: 0 10px 0 10px;
+            height: 30px;
+            min-width: 150px;
+            width: 300px;
+            border-radius: 3px;
+        }
+        .search input :focus {
+            border:1px solid var(--brorange);
+        }
+
+            .search a{
+        margin:0;
+        padding:0;
+        background:url('Images/search.png');
+        height:29px;
+        width:30px;
+    }
+/*
+.dropmenudown {
+    padding: 5px 0px 0px 0px;
+    left: 250px;
+    position: relative;
+    display: inline-block;
+    z-index:2;
+}
+
+.dropmenubtn {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    background-color: inherit;
+    background-image: url(Images/Menu-512.png);
+    background-size: 50px 50px;
+}
+    .dropmenubtn:hover, .dropmenubtn:focus {
+        background-color: inherit;
+    }
+
+.dropmenudown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--darkgray);
+    border: 2px solid var(--lightgrayblue);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    .dropmenudown-content a {
+        color: var(--text);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        .dropmenudown-content a:hover {
+            color:var(--hovertext);
+        }
+
+.dropmenudown hr {
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    height: 1px;
+    background-color: var(--brhardtonotice);
+}*/
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+    display: block;
+}

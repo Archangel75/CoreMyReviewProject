@@ -1,0 +1,136 @@
+﻿@model MyReviewProject.Models.IndexReviewViewModel
+
+
+
+<head>
+    @{ViewBag.Title = "Главная";}
+    @Styles.Render("~/Content/Content.css")
+</head>
+<body>
+
+    @ViewBag.Area
+
+    @{int postcounter = 0; }
+    @for (int j = 0; j < 2; j++)
+    {
+        <div class="row">
+            @for (int i = 0 + postcounter; i < 3 + postcounter; i++)
+            {
+                var review = Model.Reviews.ElementAt(i);
+                if (review.Image != null)
+                {
+                    <a href="~/Review/Review/@review.ReviewId" class="col-sm-4" style="background:url( data:image/jpeg;base64,@Convert.ToBase64String(review.Image) ); background-size:cover; background-position:center">
+                        <div id="Header">
+                            <div style="flex:70%; max-width:70%"><h3>@review.Subjectname</h3></div>
+                            <div style="flex:30%; max-width:30%;">
+                                <div id="MainpageRating">
+                                    ★
+                                    <label>@review.Rating</label>
+                                </div>
+                            </div>
+                        </div>
+                        @if (review.Content.Length > 160)
+                        {<p>@review.Content.Substring(0, 400)</p>}
+                    else
+                    { <p>@review.Content</p>}
+                        <div id="Footer"><h3>@review.Username</h3></div>
+                    </a>
+                }
+                else
+                {
+                    <a href="~/Review/Review/@review.ReviewId" class="col-sm-4" style="background:none; background-size:cover; background-position:center">
+                        <div id="Header">
+                            <div style="flex:70%; max-width:70%"><h3>@review.Subjectname</h3></div>
+                            <div style="flex:30%; max-width:30%;">
+                                <div id="MainpageRating">
+                                    ★
+                                    <label>@review.Rating</label>
+                                </div>
+                            </div>
+                        </div>
+                        @if (review.Content.Length > 160)
+                        {<p>@review.Content.Substring(0, 360)</p>}
+                    else
+                    { <p>@review.Content</p>}
+                        <div id="Footer"><h3>@review.Username</h3></div>
+                    </a>
+                }
+            }
+        </div>
+        postcounter = postcounter + 3;
+    }
+
+
+    <div>
+        <a class="newreview" href="~/Review/Create">+</a>
+    </div>
+</body>
+
+
+@*<div class="row">
+            @for (int i = 0; i < 3; i++)
+        {
+            var review = Model.Reviews.ElementAt(i);
+            if (review.Image != null)
+            {
+                <a href="~/Review/Review/@review.ReviewId" class="col-sm-4" style="background:url( data:image/jpeg;base64,@Convert.ToBase64String(review.Image) ); background-size:cover; background-position:center">
+                    <div id="Header">
+                        <div style="flex:70%; max-width:70%"><h3>@review.Subjectname</h3></div>
+                        <div style="flex:30%; max-width:30%;">
+                            <div id="MainpageRating">
+                                ★
+                                <label>@review.Rating</label>
+                            </div>
+                        </div>
+                    </div>
+                    @if (review.Content.Length > 160)
+                    {<p>@review.Content.Substring(0, 400)</p>}
+                    else
+                    { <p>@review.Content</p>}
+                    <div id="Footer"><h3>@review.Username</h3></div>
+                 </a>
+            }
+        else
+        {
+            <a href="~/Review/Review/@review.ReviewId" class="col-sm-4" style="background:none; background-size:cover; background-position:center">
+                <div id="Header">
+                    <div style="flex:70%; max-width:70%"><h3>@review.Subjectname</h3></div>
+                    <div style="flex:30%; max-width:30%;">
+                        <div id="MainpageRating">
+                            ★
+                            <label>@review.Rating</label>
+                        </div>
+                    </div>
+                </div>
+                @if (review.Content.Length > 160)
+            {<p>@review.Content.Substring(0, 360)</p>}
+    else
+    { <p>@review.Content</p>}
+      <div id="Footer"><h3>@review.Username</h3></div>
+            </a>
+    }
+    }
+        </div>*@
+
+@*<div class="row">
+        @for (int j = 3; j < 6; j++)
+        {
+            var review = Model.Reviews.ElementAt(j);
+        <a href="~/Review/Review/@review.ReviewId" class="col-sm-4" style="background:@review.Image; background-size:cover; background-position:center">
+            <div id="Header">
+                <div style="flex:70%; max-width:70%"><h3>@review.Subjectname</h3></div>
+                <div style="flex:30%; max-width:30%;">
+                    <div id="MainpageRating">
+                        ★
+                        <label>@review.Rating</label>
+                    </div>
+                </div>
+            </div>
+            @if (review.Content.Length > 160)
+            {<p>@review.Content.Substring(0, 360)</p>}
+            else
+            { <p>@review.Content</p>}
+              <div id="Footer"><h3>@review.Username</h3></div>
+        </a>
+        }
+    </div>*@

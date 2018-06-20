@@ -1,0 +1,49 @@
+﻿@using MyReviewProject.Models
+@model LoginViewModel
+
+@Styles.Render("~/Content/AdminPanels.css")
+@{
+    ViewBag.Title = "Выполнить вход";
+}
+<head>
+
+</head>
+<body>
+    <div class="admin">
+        <h2>@ViewBag.Title.</h2>
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Используйте локальную учетную запись для входа.</h4>
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="row">
+            <div class="col-sm-3">Email/Логин :</div>
+            <div class="col-sm-5">@Html.TextBoxFor(m => m.Login, new { @class = "form-control" })</div>
+            <div class="col-sm-4"> @Html.ValidationMessageFor(m => m.Login, "", new { @class = "text-danger" })</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">Пароль :</div>
+            <div class="col-sm-5"> @Html.PasswordFor(m => m.Password, new { @class = "form-control" })</div>
+            <div class="col-sm-4"> @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" }) </div>
+        </div>
+
+        <hr />
+        <div>
+            <div class="checkbox">
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe)
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Выполнить вход" class="btn btn-default" />
+        </div>
+
+        <a id="admin">@Html.ActionLink("Регистрация нового пользователя", "Register")</a>
+
+}
+    </div>
+</body>

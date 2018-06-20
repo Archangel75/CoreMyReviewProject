@@ -1,0 +1,64 @@
+﻿
+<!-- Modal -->
+<div class="modal" id="SubjectModal" tabindex="1" role="dialog">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Создание нового резюме предмета</h3>
+        <div class="linerow">
+            <div class="col-50">
+                <dl class="dropdownCat">
+                    <dt>
+                        <a href="#">
+                            <span class="hidaCat">Select</span>
+                            <p class="multiSelCat"></p>
+                        </a>
+                    </dt>
+                    <dd>
+                        <div class="mutliSelectCat">
+                            <ul>
+                                @foreach (var cat in Model.Categories)
+                            {
+                                <li>
+                                    <label><input name="Category" type="radio" id=catid value=@cat.Name /> @cat.Name</label>
+                                </li>
+                        }
+                            </ul>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="col-50">
+                <dl class="dropdownSub">
+                    <dt>
+                        <a href="#">
+                            <span class="hidaSub">Select</span>
+                            <p class="multiSelSub"></p>
+                        </a>
+                    </dt>
+                    <dd>
+                        <div class="mutliSelectSub">
+                            <ul id="subCat">
+                                @foreach (var subCat in ViewBag.subs)
+                                {
+                                        <li>
+                                            <label><input name="subCategory" type="radio" id=subcatid value=@subCat.Name /> @subCat.Name</label>
+                                        </li>
+                                }
+                            </ul>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="fields-item">
+            <div class="col-25"><label class="field-positive-label">Наименование</label></div>
+            <div class="col-75"><input type="text" name="Objectname" id="subjName" placeholder="Введите название штуки" /></div>
+        </div>
+
+        <hr />
+        <div class="linerow-smaller">
+            <div class="col-25"><input type="button" id="createNewSubject" value="Сохранить" /></div>
+        </div>        
+    </div>
+</div>

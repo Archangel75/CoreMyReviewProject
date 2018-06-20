@@ -1,0 +1,38 @@
+﻿
+
+@{
+    ViewBag.Title = "NotFound";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @Styles.Render("~/Content/ErrorStyle.css");
+}
+<head>
+
+</head>
+<body>
+    <div class="errorclass">
+        <h1>Whoooopss.... Error @ViewBag.Model.Code </h1>
+        <h4>Looks like something goes wrong!</h4>
+        <h4>This page you clicked may be broken or have been removed.</h4>
+            <h4>Details of this error:</h4>
+        
+            <details>
+                <div style="background-color:azure; font-family:Arial, Helvetica, sans-serif; text-align:left;">
+                    <p>
+                        <mark>Message:</mark>  @ViewBag.Model.Message
+                        <br />
+                        <br />
+                        <mark>Trace:</mark>  @ViewBag.Model.Trace
+                        <br />
+                        <br />
+                        <mark>Source:</mark>  @ViewBag.Model.Source
+                        <br />
+                        <br />
+                        <mark>InnerInner:</mark>  @ViewBag.Model.AddStuff
+
+                    </p>
+                </div>
+            </details>
+        
+        <p>Visit the <a href="~/Home/Index">Homepage</a> please </p>
+    </div>
+</body>

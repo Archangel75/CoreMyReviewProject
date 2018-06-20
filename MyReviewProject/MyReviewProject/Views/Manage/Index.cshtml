@@ -1,0 +1,32 @@
+﻿@model MyReviewProject.Models.IndexViewModel
+@{
+    ViewBag.Title = "Управление";
+
+}
+<head>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/AdminPanels.css" />
+    
+</head>
+<body>    
+    <div class="admin">
+        <h2>@ViewBag.Title.</h2>
+        <p class="text-success">@ViewBag.StatusMessage</p>
+        <h2>Здравствуйте, @Model.userLogin !</h2>
+        <hr />
+        <h4>Изменение параметров учетной записи</h4>
+        <dl class="dl-horizontal">
+            <dd>@Html.ActionLink("Изменить данные", "EditUser")</dd>
+        </dl>
+
+        <hr />
+
+        @if (User.IsInRole("Admin"))
+    {
+        <div>
+            <h4>Войти в капище</h4>
+            <dd>@Html.ActionLink("Капище", "Index", "Admin")</dd>
+        </div>
+}
+    </div>
+</body>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MyReviewProject.Models.ApplicationRole>
+@using MyReviewProject.Models
+
+<head>
+@{
+    ViewBag.Title = "Роли";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/AdminPanels.css" />
+</head>
+<body>
+    <div class="admin">
+        <h2>Роли</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Пользователи</th>
+                <th style="min-width: 150px"></th>
+            </tr>
+            @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="4" class="text-center">Нет ролей</td>
+            </tr>
+    }
+    else
+    {
+        foreach (ApplicationRole role in Model)
+        {
+            <tr>
+                <td>@role.Id</td>
+                <td>@role.Name</td>
+                <td>
+                    @ViewBag.UserDic[role.Name]
+                </td>
+                <td>
+                    @Html.ActionLink("Изменить", "Edit", new { id = role.Id })
+                    @Html.ActionLink("Удалить", "Delete", new { id = role.Id })
+
+                </td>
+            </tr>
+    }
+}
+        </table>
+        @Html.ActionLink("Создать", "Create", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Назад", "Index", "Admin")
+    </div>
+    
+</body>

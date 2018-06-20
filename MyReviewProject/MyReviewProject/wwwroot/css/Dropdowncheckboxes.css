@@ -1,0 +1,88 @@
+@import "Colors.css";
+
+
+
+.dropdownCat, .dropdownSub {
+    position: relative;
+    font-size: 15px;
+}
+    .dropdownCat dd,
+    .dropdownCat dt, 
+    .dropdownSub dd, 
+    .dropdownSub dt {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .dropdownCat ul, .dropdownSub ul {
+        margin: -1px 0 0 0;
+    }
+
+    .dropdownCat dd, .dropdownSub dd {
+        position: relative;
+    }
+
+    .dropdownCat a,
+    .dropdownCat a:visited, 
+    .dropdownSub a,
+    .dropdownSub a:visited {
+        color: var(--whitetext);
+        text-decoration: none;
+        outline: none;
+        font-size: 12px;
+    }
+
+    .dropdownCat dt a, 
+    .dropdownSub dt a {
+        background-color: var(--brhardtonotice);
+        display: block;
+        padding: 8px 20px 5px 10px;
+        min-height: 25px;
+        line-height: 24px;
+        overflow: hidden;
+        border: 0;
+        width: 75%;
+    }
+
+    .dropdownCat input[type=radio],
+    .dropdownSub input[type=radio]{
+        display:none
+    }
+
+
+        .dropdownCat dt a span,
+        .multiSelCat span, 
+        .dropdownSub dt a span,
+        .multiSelSub span {
+            cursor: pointer;
+            display: inline-block;
+            padding: 0 3px 2px 0;
+        }
+
+    .dropdownCat dd ul, 
+    .dropdownSub dd ul {
+        background-color: var(--brhardtonotice);
+        border: 0;
+        color: var(--whitetext);
+        display: none;
+        left: 0px;
+        padding: 2px 15px 2px 5px;
+        position: absolute;
+        top: 2px;
+        width: 75%;
+        list-style: none;
+        height: 150px;
+        overflow: auto;
+    }
+
+    .dropdownCat span.value,
+    .dropdownSub span.value {
+        display: none;
+    }
+
+    .dropdownCat dd ul li a,
+    .dropdownSub dd ul li a {
+        padding: 5px;
+        display: block;
+    }
+

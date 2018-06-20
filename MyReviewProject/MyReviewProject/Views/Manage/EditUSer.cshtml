@@ -1,0 +1,53 @@
+﻿@model MyReviewProject.Models.EditUserViewModel
+@{
+    ViewBag.Title = "Change User Info";
+}
+@Styles.Render("~/Content/AdminPanels.css")
+
+
+@using (Html.BeginForm("EditUSer", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="admin">
+        <h2>@ViewBag.Title.</h2>
+        @Html.AntiForgeryToken()
+
+        <hr />
+        <h3>Your current login is @Model.OldLogin</h3>
+        <div class="row">
+            <div class="col-sm-2">@Html.LabelFor(m => m.NewLogin, new { @class = "col-md-2 control-label" })</div>
+            <div class="col-sm-5">@Html.TextBoxFor(m => m.NewLogin, new { @class = "form-control" })</div>
+            <div class="col-sm-5"></div>
+        </div>
+
+        <h3>Your current Email is @Model.OldEmail</h3>
+        <div class="row">
+            <div class="col-sm-2">@Html.LabelFor(m => m.NewEmail, new { @class = "col-md-2 control-label" })</div>
+            <div class="col-sm-5">@Html.TextBoxFor(m => m.NewEmail, new { @class = "form-control" })</div>
+            <div class="col-sm-5"></div>
+        </div>
+
+        <hr />
+        <h3>Change pw</h3>
+        <div class="row">
+            <div class="col-sm-2">@Html.LabelFor(m => m.OldPassword, new { @class = "col-md-2 control-label" })</div>
+            <div class="col-sm-5">@Html.TextBoxFor(m => m.OldPassword, new { @class = "form-control" })</div>
+            <div class="col-sm-5"> @Html.ValidationSummary("", new { @class = "text-danger" })</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2">@Html.LabelFor(m => m.NewPassword, new { @class = "col-md-2 control-label" })</div>
+            <div class="col-sm-5">@Html.PasswordFor(m => m.NewPassword, new { @class = "form-control" })</div>
+            <div class="col-sm-5">@Html.ValidationSummary("", new { @class = "text-danger" })</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2">@Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })</div>
+            <div class="col-sm-5">@Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })</div>
+            <div class="col-sm-5">@Html.ValidationSummary("", new { @class = "text-danger" })</div>
+        </div>
+
+        <input type="submit" value="Применить изменения" class="btn btn-default" />
+        @Html.ActionLink("Отмена", "Index", null, new { @class = "btn btn-default" })
+
+    </div>
+ }

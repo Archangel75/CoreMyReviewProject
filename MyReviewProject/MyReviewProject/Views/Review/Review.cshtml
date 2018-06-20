@@ -1,0 +1,104 @@
+﻿@model MyReviewProject.Models.ShowReviewViewModel
+@using MyReviewProject.Models
+@{
+
+    ViewBag.Title = "Review";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    <script src='@Url.Content("~/Scripts/jquery-3.3.1.min.js")' type="text/javascript"></script>
+    <script src='@Url.Content("~/Scripts/jquery-ui-1.12.1.min.js")' type="text/javascript"></script>
+    <script src='@Url.Content("~/Scripts/ReviewScripts.js")' type="text/javascript"></script>
+    var imgSrc = "";
+    if (Model.Image != null)
+    {
+        imgSrc = String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(Model.Image));
+    }
+    var rating = 100 / 5 * Model.Rating;
+}
+
+<head>
+
+</head>
+<body>
+    @*@Html.HiddenFor(m => m.ReviewId)*@
+    <input type="hidden" value="@Model.ReviewId" id="hidId" />
+    <div class="Review">
+        <div class="Header">
+            <h3>@Model.Subjectname</h3>
+        </div>
+        <div class="Content">
+            <div class="top">
+                <div class="left">
+                    <h2>Кратко</h2>
+                    <div class="Like">
+                        <span>Достоинства:</span>
+                        @Model.Like
+                    </div>
+                    <hr style="border:1px solid var(--brhardtonotice)">
+                    <div class="Dislike">
+                        <span>Недостатки:</span>
+                        @Model.Dislike
+                    </div>
+                    <hr style="border:1px solid var(--brhardtonotice)">
+                    <div class="Rating">
+                        <span>Оценка:</span>
+                        <div class="RatingRow" style="width:@rating%">
+                            <div class="RatingImage" style='background:url("../../Content/Images/stars.png"); background-size:cover'></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="Image">
+                        <img id="myImg" src="@imgSrc" />
+                        <div id="myModal" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img01">
+                            <script>
+                                var modal = document.getElementById('myModal');
+                                var img = document.getElementById('myImg');
+                                var modalImg = document.getElementById("img01");
+                                img.onclick = function () {
+                                    modal.style.display = "block";
+                                    modalImg.src = this.src;
+                                }
+                                var span = document.getElementsByClassName("close")[0];
+                                span.onclick = function () {
+                                    modal.style.display = "none";
+                                }
+                            </script>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="Text">
+                    <h2>Подробно:</h2>
+                    @Model.Content
+                </div>
+            </div>
+        </div>
+        <div class="Footer">
+
+            @if (@Model.Username != null)
+            {
+                <div><span>By :</span> @Model.Username</div>
+            }
+            else
+            {
+                <div><span>By :</span> Unknown</div>
+            }
+            From @Model.DateCreate.Year
+        </div>
+
+        <details class="Comments">
+            <summary>Показать комментарии</summary>
+            @{Html.RenderPartial("CommentsView");}
+        </details>
+
+
+    </div>
+    @Styles.Render("~/Content/ReviewPage.css")
+</body>
+

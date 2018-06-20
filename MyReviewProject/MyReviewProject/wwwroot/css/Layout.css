@@ -1,0 +1,46 @@
+@import "Categories.css";
+@import "Menu.css";
+@import "AdminPanels.css";
+@import "Colors.css";
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    padding-bottom: 20px;
+    background-image: url(Images/2.png);
+    margin: 0; /* Отступы на странице */
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#content { /* Правая колонка */
+    margin: 10px 5px 20px 25%; /* Значения отступов */
+    padding: 5px; /* Поля вокруг текста */
+    height: 100%;
+   }
+
+   #footer { /* Нижний блок */
+    background: var(--testborder); /* Цвет фона */
+    padding: 5px; /* Поля вокруг текста */
+    color: var(--text); /* Цвет текста */
+    clear: left; /* Отменяем действие float */
+   }
+   
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}

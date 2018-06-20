@@ -1,0 +1,240 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Gabriela|Raleway:500,700&subset=latin-ext');
+@import 'StarRating.css';
+@import 'Dropdowncheckboxes.css';
+@import 'Colors.css';
+@import 'hint.css';
+
+.fields-item {
+    display: table;
+    box-sizing: border-box;
+    vertical-align: top;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.linerow {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.linerow-smaller {
+    font: 600;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Gabriela', serif;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0;
+    margin-top: 10px;
+}
+
+h1, h2, h3, h4, h5, .field-positive-label {
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Gabriela', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color:var(--brorange);
+}
+
+.col-25 {
+    float: left;
+    width: 35%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 65%;
+    margin-top: 6px;
+}
+
+.col-50 {
+    float:left;
+    width:50%;
+    margin-top:6px;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+}
+
+.modal-content {
+    background-color: var(--darkgray);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    min-height: 500px;
+    height:auto;
+}
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#ui-id-1{
+        background-color: var(--brhardtonotice);
+        border: 0;
+        color: var(--whitetext);
+        display: none;
+        left: 0px;
+        padding: 2px 15px 2px 5px;
+        position: absolute;
+        top: 2px;
+        max-width: 500px;
+        list-style: none;
+        overflow: auto;
+    }
+
+#buttoncreate{
+    margin: 0 20px 0 20px;
+    padding: 0 30px 0 30px;
+    width: 150px;
+}    
+
+.divhide{
+    display:none;
+}
+
+input[type=submit], input[type=button] {
+    background-color: var(--lightgray);
+    color: var(--darkgray);
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px 5px 5px 0px;
+    cursor: pointer;
+    min-width:150px;
+}
+
+textarea{
+    width: 100%;
+    font-family: 'Gabriela', serif;
+    font-size: 15px;
+    padding: 12px;
+    border: 2px solid var(--plumy);
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: hidden;
+    word-wrap: break-word;
+    resize: none;
+    height: 107px;
+    overflow-y:scroll;
+}
+
+input[type=text] {
+    min-width: 250px;
+    width: 100%;
+    font-family: 'Gabriela', serif;
+    font-size: 15px;
+    padding: 12px;
+    padding-left:40px;
+    border: 2px solid var(--plumy);
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none;
+    max-width: none;
+}
+
+.valid {
+    background: url('Images/check.jpg');
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: 6px 6px;
+}
+.invalid {
+    background: url('Images/nocheck.jpg');
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: 6px 7px;
+}
+
+
+textarea:focus, input[type=text]:focus {
+    outline: 4px solid var(--hovertext);
+}
+
+.Review-product-fields {
+    display:block;
+    padding-top:10px;
+}
+
+.input-box {
+    display:block;
+    position:relative;
+    cursor:text;
+    position:relative;
+    box-sizing:border-box;
+    width:500px;
+    min-width:500px;
+}
+
+.field-positive-label {
+    display:table-cell;
+    padding: 8px 12px 0 0;
+    vertical-align:top;
+    width:165px;
+    min-width:165px;
+    
+}
+
+#field-positive {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 107px;
+    resize: none;
+    color: var(--bordercolor);
+    outline: 0;
+    font-size: 15px;
+    line-height: 18px;
+    overflow: hidden;
+    word-wrap: break-word;
+    resize: none;
+    height: 107px;
+}
+
+
+.radio-button__text {
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Gabriela', serif;
+    font-size: 15px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px 20px;
+    color:var(--text);
+}
+
+.radio-group {
+    border: solid 3px var(--peachy);    
+    display: inline-block;
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.radio-button__control {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+}
+
+    .radio-button__control:checked + .radio-button__text {
+        background: var(--lightgray);
+        color: var(--darkgray);
+    }
+

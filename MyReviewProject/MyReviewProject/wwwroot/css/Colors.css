@@ -1,0 +1,30 @@
+﻿:root {
+    --lightgray: #ccc6c2;
+    --lightgraybluetransparent25: rgba(162, 170, 176, 0.25);
+    --lightgraybluetransparent50: rgba(162, 170, 176, 0.50);
+    --lightgraybluetransparent75: rgba(162, 170, 176, 0.75);
+    --lightgrayblue: #a2aab0;
+    --darkgray: #3d3d3a;
+    --bordercolor: #4c5970;
+    --hovertext: #feb386;
+    --text: #9d999d;
+    --whitetext: #ebeced;
+    --testborder: #292c44;
+    --brhardtonotice: #4d4d48;
+    --brorange: #feb386;
+    --buttons: #ffd6a0;
+    --peachy: #ffbc67;
+    --lightviolet: #685c79;
+    --redviolet: #ac6c82;
+    --plumy: #455c7b;
+    --darkorange: #f44336;
+    --errorpagelink: #f36;
+    --darkazure: #03658c;
+    --nocolor:;
+}
+
+/*
+    https://color.adobe.com/ru/Copy-of-Copie-de-QB-Studio-website-Project-3-color-theme-10406981/
+    https://color.adobe.com/ru/Professional-(D)-color-theme-10419991/
+    https://color.adobe.com/ru/Copia-de-Copy-of-Sunset-Camping-color-theme-10410319/
+*/

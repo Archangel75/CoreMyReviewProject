@@ -1,0 +1,74 @@
+﻿
+
+
+<div class="comments-container">
+    <ul id="comments-list" class="comments-list">       
+
+       @foreach (var comment in Model.Comments)
+       {
+           var theid = "isLiked" + @comment.Id;
+           var boxid = "box" + @comment.Id;
+           var mydivId = "mydiv" + @comment.Id;
+           var isLiked = @comment.Liked;
+        <li>
+            <div class="comment-main-level">
+                <div class="comment-box" id="@boxid">
+                    <div class="comment-head">
+                        <h6 class="comment-name"><a href="http://creaticode.com/blog">@comment.Author.UserName</a></h6>
+                        <span>
+                            Posted at: @comment.CreateTime
+                        </span>
+                        @if (comment.Reply != null)
+    {
+                    <span>  Answer to: <a href="/Review/Review/@Model.ReviewId#@comment.Reply.ReplyToId">@comment.Reply.UserName</a></span>
+}
+
+                        <i class="fa fa-reply" id=@comment.Id></i>
+                        @if (isLiked)
+                        {
+                    <input type="hidden" name="Liked" id="@theid"+@theid value=@isLiked />
+                    <i class="fa fa-heart" id=@comment.Id style="color:var(--errorpagelink)">@comment.Likes</i>
+}
+else
+{
+                    <i class="fa fa-heart" id=@comment.Id>@comment.Likes</i>
+}
+                    </div>
+                    <div class="comment-content" id="@mydivId">
+                        @comment.Comment
+                    </div>
+                    @*<script>unescapedHTML("@mydivId" ,$("#@mydivId").text())</script>*@
+                </div>
+            </div>
+        </li>
+        }
+
+        
+        <li>
+            <div class="comment-main-level">
+                <div class="comment-box">
+                    <div class="comment-head">
+                        <h6 class="comment-name"></h6>
+                    </div>
+                    <div class="comment-content">
+                        @if (Request.IsAuthenticated)
+    {
+                    <div type="text" class="leavecomment" id="leavecomment" placeholder="  А что вы думаете по этому поводу?" contenteditable="true" role="textbox"></div>
+                    <p id="wrongcomment">Ваш комментарий содержит слишком мало текста.</p>
+                    <p id="answerto" style="display:none"></p>
+                    <button class="submitcomment">Submit</button>
+}
+else
+{
+                    @Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                            <br />
+                    @Html.ActionLink("Выполнить вход", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+}
+
+                    </div>
+                    <script src="~/Scripts/ReviewScripts.js" type="text/javascript"></script>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,44 @@
+﻿@model MyReviewProject.Models.RegisterViewModel
+
+@Styles.Render("~/Content/AdminPanels.css")
+@{
+    ViewBag.Title = "Регистрация";
+}
+<head>
+
+</head>
+<body>
+    <div class="admin">
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <h2>@ViewBag.Title.</h2>
+
+        @Html.AntiForgeryToken()
+
+        <h4>Создайте новую учетную запись.</h4>
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-sm-3">Емэйл :</div>
+            <div class="col-sm-5"> @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })</div>
+        </div>
+        <div class="admin row">
+            <div class="col-sm-3">Логин : </div>
+            <div class="col-sm-5"> @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Пароль : </div>
+            <div class="col-sm-5"> @Html.PasswordFor(m => m.Password, new { @class = "form-control" }) </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Подтвердите пароль : </div>
+            <div class="col-sm-5"> @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })</div>
+
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-default" value="Регистрация" />
+        </div>
+}
+
+    </div>
+</body>

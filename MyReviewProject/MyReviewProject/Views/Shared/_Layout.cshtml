@@ -1,0 +1,82 @@
+﻿@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title – Главная</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Layout.css" />
+
+</head>
+<body>
+    <div class="sidebar">
+        <ul>
+            <li><a href="~/Home/Index" class="current">Main</a></li>            
+            <li><a href="https://hh.ru/resume/df3917ecff029553600039ed1f505232556947#key-skills" target="_blank">HHLink</a></li>            
+            <li><a href="https://github.com/Archangel75/ASPNetRep" target="_blank">GitHub</a></li>
+        </ul>
+    </div>
+    <div class="menu-cat">
+        <div class="logo">
+            <a href="~/Home/Index"></a>
+        </div>
+
+        <div class="search">
+            <input type="search" />
+            <a href=""></a>
+        </div>
+        @*<div class="dropmenudown">
+            <button onclick="myFunction()" class="dropmenubtn"></button>
+            <div id="myDropdown" class="dropmenudown-content">
+                <a href="#home">Boopers</a>
+                <hr />
+                <a href="#about">Shmoopers</a>
+                <a href="#contact">Contacts</a>
+
+            </div>
+        </div>*@
+
+        <div class="login">
+            @if (Request.IsAuthenticated)
+            {
+
+                <li>@Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</li>
+                <li>@Html.ActionLink("Выйти", "LogOff", "Account", routeValues: null, htmlAttributes: new { id = "Logoff" })</li>
+
+            }
+            else
+            {
+                <li>@Html.ActionLink("Регистрация", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink("Выполнить вход", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            }
+        </div>
+
+        <script>
+            /* When the user clicks on the button,
+            toggle between hiding and showing the dropdown content */
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }// Close the dropdown if the user clicks outside of it
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropmenubtn')) {
+
+                    var dropdowns = document.getElementsByClassName("dropmenudown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+        </script>
+    </div>
+
+    <div id="content">
+        @RenderBody()
+    </div>
+</body>
+</html>
